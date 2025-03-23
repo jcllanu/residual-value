@@ -111,10 +111,11 @@ if __name__=="__main__":
     #        "lincoln","mazda","mercedes_benz","mini","mitsubishi","nissan","porsche","ram","subaru","tesla","toyota","volkswagen","volvo"]
     makes=["audi","bmw","buick","cadillac","chevrolet","chrysler","dodge","ford","gmc","honda","hyundai","infiniti","jeep","kia","land_rover","lexus",
             "lincoln","mazda","mercedes_benz","mini","mitsubishi","nissan","porsche","ram","subaru","tesla","toyota","volkswagen","volvo"]
-
-    initial_page=1
+    makes=makes[::-1]
+    initial_page=51
     final_page=250
     for make in makes:
         paginate(initial_page, final_page, make)
+        initial_page=1
 
 
