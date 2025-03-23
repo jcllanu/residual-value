@@ -10,50 +10,66 @@ from bs4 import BeautifulSoup
 import json
 
 
-def parse(url):
+def parse(url, make):
     driver = webdriver.Chrome()
     driver.get(url)
     soup=BeautifulSoup(driver.page_source,'lxml')
-    cars = soup.find_all('div',{'class':'vehicle-details'})
+    cars = soup.find_all('div',class_='vehicle-details')
     data = []
     for car in cars:
          rawHref = car.find('a')['href']
          href = rawHref if 'https' in rawHref else 'https://cars.com'+rawHref
-         name = car.find('h2',{'class':'title'}).text
-         price = car.find('span',{'class':'primary-price'}).text
-         mileage = car.find(attrs={'class':'mileage'}).text if car.find(attrs={'class':'mileage'}) else None
-         dealer = car.find(attrs={'class':'dealer-name'}).text.replace('\n','') if car.find(attrs={'class':'dealer-name'}) else None
-         reviews = car.find('span',{'class':'test1 sds-rating__link sds-button-link'}).text.replace('(','').replace(')','') if car.find('span',{'class':'test1 sds-rating__link sds-button-link'}) else None
-         location = car.find(attrs={'class':'miles-from'}).text.replace('\n','')
-         rating = car.find('span',{'class':'sds-rating__count'}).text if car.find('span',{'class':'sds-rating__count'}) else None
-         stock_type = car.find('p',{'class':'stock-type'}).text
+         name = car.find('h2',class_='title').text.replace('\n','').strip()
+         
+         year=name.split()[0]
+         model=' '.join(name.split()[1:])
+         price_USD = car.find('span',class_='primary-price').text.replace('\n','').replace('$','').replace(',','').replace(' ','')
+         try:
+           price_USD=float(price_USD)
+         except:
+           price_USD=None
+         # mileage = car.find(attrs={'class':'mileage'}).text.split()[0] if car.find(attrs={'class':'mileage'}) else None
+         stock_type = car.find('p',class_='stock-type').text
          
          
          driver.get(href)
          newSoup=BeautifulSoup(driver.page_source,'lxml')
          
-         print('getting details of'+name)
-         description = newSoup.find('dl',{'class':'fancy-description-list'})
+         print('getting details of '+name)
+         description = newSoup.find('dl',class_ = 'fancy-description-list')
          rawBasicKeys = description.find_all('dt')
          basicKeys = [key.text.replace('\n',' ') for key in rawBasicKeys]
          rawBasicValues = description.find_all('dd')
          basicValues = [value.text.replace('\n',' ') for value in rawBasicValues]
          basics = dict(zip(basicKeys,basicValues))
 
+         exterior_color = basics["Exterior color"].strip()
+         interior_color = basics["Interior color"].strip()
+         drive_train = basics["Drivetrain"].strip()
+         mpg= basics["MPG"].strip() if "MPG" in basicKeys else None
+         fuel_type = basics["Fuel type"].strip() if "Fuel type" in basicKeys else None
+         transmission = basics["Transmission"].strip()
+         engine = basics["Engine"].strip()
+         mileage = basics["Mileage"].split()[0].replace(',','')
+
+        
 
          data.append({
-              "Name":name,
-              "Price":price,
-              "URL":href,
-              "Mileage":mileage,
-              "Stock-Type":stock_type,
-              "Dealer Details":{"Name":dealer,
-                                "Rating":rating,
-                                "Review Count":reviews,
-                                "Location":location
-                                },
-                   
-              "Specifications":basics
+              "year_manufacture":int(year),
+              "years": 2025-int(year),
+              "make": make,
+              "model": model,              
+              "mileage": float(mileage),
+              "stock_type": stock_type,
+              "interior_color": interior_color,
+              "exterior_color": exterior_color,
+              "drive_train": drive_train,
+              "mpg": mpg,
+              "fuel_type": fuel_type,
+              "transmission": transmission,
+              "engine": engine,
+              "price_USD": price_USD,
+              'url': href
          }
          )
     driver.quit()
@@ -61,21 +77,29 @@ def parse(url):
 
 
 
-def paginate(max_pages):
+def paginate(initial_page, final_page, make):
+    batch=0
+    num_cars=0
     carData = []
-    for i in range(int(max_pages)):
-        url = "https://www.cars.com/shopping/results/?_unused_include_shippable=&_unused_keyword=&_unused_list_price_max=&_unused_list_price_min=&_unused_makes[]=&_unused_mileage_max=&_unused_monthly_payment=&_unused_stock_type=&_unused_year_max=&_unused_year_min=&_unused_zip=&dealer_id=&include_shippable=true&keyword=&list_price_max=&list_price_min=&makes[]=&maximum_distance=all&mileage_max=&monthly_payment=&page="+str(i)+"&page_size=20&sort=best_match_desc&stock_type=all&year_max=&year_min=&zip=60606"  
-        scraped_data =  parse(url)
-        print(url)
+    for i in range(initial_page, final_page+1):
+        url="https://www.cars.com/shopping/results/?makes[]="+make+"&maximum_distance=all&page="+str(i)+"&stock_type=used&zip=60606"
+        scraped_data = parse(url, make)
         for data in scraped_data:
             carData.append(data)
-    return carData
+        num_cars=len(carData)
+        print(f"Make {make},  Page {i}, {num_cars} cars")
+        if i%50==0:
+            batch+=1
+            writeData(carData, batch, make)
+            num_cars=0
+            carData = []
+    writeData(carData, batch+1, make)
 
 
-def writeData(carData):
+def writeData(carData, batch, make):
     if carData:
         print(len(carData))
-        with open('cars.json','w',encoding='utf-8') as jsonfile:
+        with open('cars_'+make+'_'+str(batch)+'.json','w',encoding='utf-8') as jsonfile:
             json.dump(carData,jsonfile,indent=4,ensure_ascii=False)
     else:
         print("No data scraped")
@@ -84,8 +108,13 @@ def writeData(carData):
 
 if __name__=="__main__":
     # extract data
-    max_pages=4
-    carData=paginate(max_pages)
-    # write data
-    writeData(carData)
+    makes=["acura","audi","bmw","buick","cadillac","chevrolet","chrysler","dodge","ford","gmc","honda","hyundai","infiniti","jeep","kia","land_rover","lexus",
+            "lincoln","mazda","mercedes_benz","mini","mitsubishi","nissan","porsche","ram","subaru","tesla","toyota","volkswagen","volvo"]
+
+    initial_page=151
+    final_page=250
+    for make in makes:
+        paginate(initial_page, final_page, make)
+        initial_page=1
+
 
