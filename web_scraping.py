@@ -9,10 +9,12 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import json
 
+driver = webdriver.Chrome()
+driver.minimize_window()
 
 def parse(url, make):
-    driver = webdriver.Chrome()
-    driver.minimize_window()
+
+    
     try:
         driver.get(url)
     except:
@@ -113,10 +115,12 @@ if __name__=="__main__":
     # extract data
     # makes=["acura","audi","bmw","buick","cadillac","chevrolet","chrysler","dodge","ford","gmc","honda","hyundai","infiniti","jeep","kia","land_rover","lexus",
     #        "lincoln","mazda","mercedes_benz","mini","mitsubishi","nissan","porsche","ram","subaru","tesla","toyota","volkswagen","volvo"]
-    makes=["audi","bmw","buick","cadillac","chevrolet","chrysler","dodge","ford","gmc","honda","hyundai","infiniti","jeep","kia","land_rover","lexus",
-            "lincoln","mazda","mercedes_benz","mini","mitsubishi","nissan","porsche","ram","subaru","tesla","toyota","volkswagen","volvo"]
+    
+    # Lucía: "chrysler","dodge","ford","gmc","honda"
+    makes=["cadillac","chevrolet","hyundai","infiniti","jeep","kia","land_rover","lexus",
+            "lincoln","mazda","mercedes_benz","mini","mitsubishi","nissan","porsche","ram"]
     # makes=makes[::-1]
-    initial_page=221
+    initial_page=151
     final_page=250
     for make in makes:
         paginate(initial_page, final_page, make)
