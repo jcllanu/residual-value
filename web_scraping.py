@@ -8,16 +8,16 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import json
+import time
 
 driver = webdriver.Chrome()
 driver.minimize_window()
 
 def parse(url, make):
-
-    
     try:
         driver.get(url)
     except:
+        time.sleep(1)
         driver.get(url)
     
     soup=BeautifulSoup(driver.page_source,'lxml')
@@ -78,7 +78,6 @@ def parse(url, make):
              )
         except:
             continue
-    driver.quit()
     return data
 
 
@@ -117,10 +116,10 @@ if __name__=="__main__":
     #        "lincoln","mazda","mercedes_benz","mini","mitsubishi","nissan","porsche","ram","subaru","tesla","toyota","volkswagen","volvo"]
     
     # Lucía: "chrysler","dodge","ford","gmc","honda"
-    makes=["cadillac","chevrolet","hyundai","infiniti","jeep","kia","land_rover","lexus",
-            "lincoln","mazda","mercedes_benz","mini","mitsubishi","nissan","porsche","ram"]
+    # Ana: "jeep","kia","land_rover","lexus", "lincoln"
+    makes=["hyundai","infiniti","mazda","mercedes_benz","mini","mitsubishi"]
     # makes=makes[::-1]
-    initial_page=151
+    initial_page=111
     final_page=250
     for make in makes:
         paginate(initial_page, final_page, make)
