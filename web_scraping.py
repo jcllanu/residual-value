@@ -117,9 +117,9 @@ if __name__=="__main__":
     
     # Lucía: "chrysler","dodge","ford","gmc","honda"
     # Ana: "jeep","kia","land_rover","lexus", "lincoln"
-    makes=["hyundai","infiniti","mazda","mercedes_benz","mini","mitsubishi"]
+    makes=["infiniti","mazda","lincoln"]
     # makes=makes[::-1]
-    initial_page=111
+    initial_page=141
     final_page=250
     for make in makes:
         paginate(initial_page, final_page, make)
