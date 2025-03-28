@@ -117,10 +117,10 @@ if __name__=="__main__":
     
     # Lucía: "chrysler","dodge","ford","gmc","honda"
     # Ana: "jeep","kia","land_rover","lexus", "lincoln"
-    makes=["infiniti","mazda","lincoln"]
+    makes=["jeep"]
     # makes=makes[::-1]
-    initial_page=141
-    final_page=250
+    initial_page=1
+    final_page=10
     for make in makes:
         paginate(initial_page, final_page, make)
         initial_page=1
