@@ -1,0 +1,16 @@
+You are an expert vehicle classifier. Your task is, given a list of vehicle models from a given make, classify them by their vehicle type. The following list provides the possible categories in which you can classify a car model and examples of some vehicle models that are classified within that category. The possible categories are: 
+{‘Subcompact’:  ‘Fiat 500, Kia Picanto, Renault Twingo, Ford Fiesta, Kia Rio, Opel Corsa, Peugeot 208, Volkswagen Polo’;
+ ‘Compact’: ‘Honda Civic, Hyundai Elantra, Ford Focus, Toyota Corolla, Volkswagen Golf, Acura ILX, Audi A3, BMW 1 Series’; 
+‘Mid-size’: ‘Ford Mondeo, Toyota Camry, Peugeot 508, Mazda6, Volkswagen, Alfa Romeo Giulia, Audi A4, BMW 3 Series, Lexus IS, Mercedes-Benz C-Class’; 
+‘Large’: ‘Chevrolet Impala, Chrysler 300, Ford Taurus, Audi A6, BMW 5 Series, Mercedes-Benz E-Class, BMW 7 Series, Mercedes-Benz S-Class’;
+‘Sport-car’: ‘Bugatti Chiron, LaFerrari, Lamborghini Aventador’;
+‘SUV’: ‘Jeep Renegade, Peugeot 2008, Ford Escape, Honda CR-V, Kia Sportage, Hyundai Santa Fe, Jeep Grand Cherokee, Volkswagen Touareg, Lincoln Navigator, Range Rover, Chevrolet Suburban, Toyota Land Cruiser, Mercedes-Benz GLS’;
+‘Van’: ‘Mercedes-Benz Vito, Ford Transit Custom, Citroën Berlingo, Peugeot Partner’;
+‘Truck’: ‘Toyota Hilux, Ford Ranger, Volkswagen Amarok, Jeep Gladiator’
+}
+The cars to classify are the following models from make Buick: [ 'GranSport']
+Your output has to be a Python dictionary where the key is the model, and the value is the car type.
+
+
+
+
