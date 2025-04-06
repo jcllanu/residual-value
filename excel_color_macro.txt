@@ -1,0 +1,17 @@
+Sub FillCellWithRGBColor()
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim i As Long
+    Dim redVal As Integer, greenVal As Integer, blueVal As Integer
+
+    Set ws = ThisWorkbook.Sheets("colors")
+    lastRow = ws.Cells(ws.Rows.Count, 2).End(xlUp).Row
+
+    For i = 2 To lastRow ' Assuming headers in row 1
+        redVal = ws.Cells(i, 2).Value ' Column B
+        greenVal = ws.Cells(i, 3).Value ' Column C
+        blueVal = ws.Cells(i, 4).Value ' Column D
+
+        ws.Cells(i, 5).Interior.Color = RGB(redVal, greenVal, blueVal) ' Column E
+    Next i
+End Sub
