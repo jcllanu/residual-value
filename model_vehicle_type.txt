@@ -97,11 +97,11 @@
     '540': 'Mid-size',
     '545': 'Mid-size',
     '550': 'Mid-size',
-    '633': 'Mid-size',
-    '635': 'Mid-size',
-    '640': 'Mid-size',
-    '645': 'Mid-size',
-    '650': 'Mid-size',
+    '633': 'Large',
+    '635': 'Large',
+    '640': 'Large',
+    '645': 'Large',
+    '650': 'Large',
     '700': 'Large',
     '740': 'Large',
     '745': 'Large',
@@ -228,7 +228,7 @@
     'FLEETMASTER': 'Large',
     'HHR': 'Compact',
     'S-10': 'Truck',
-    'SS': 'Sport-car',
+    'SS': 'Large',
     'SSR': 'Sport-car'
 },
 'chrysler':{
@@ -407,7 +407,7 @@
     'ELANTRA': 'Compact',
     'ENTOURAGE': 'Van',
     'EQUUS': 'Large',
-    'GENESIS': 'Large',
+    'GENESIS': 'SUV',
     'IONIQ': 'Compact',
     'KONA': 'SUV',
     'NEXO': 'SUV',
@@ -541,9 +541,9 @@
     'NX': 'SUV',
     'RC': 'Sport-car',
     'RX': 'SUV',
-    'RZ': 'SUV',
+    'RZ': 'Mid-size',
     'SC': 'Sport-car',
-    'TX': 'Large',
+    'TX': 'SUV',
     'UX': 'Compact'
 },
 'lincoln':{
@@ -658,11 +658,11 @@
 },
 'mini':{
     'CLUBMAN': 'Compact',
-    'PACEMAN': 'SUV',
+    'PACEMAN': 'Subcompact',
     'CONVERTIBLE': 'Sport-car',
     'COUNTRYMAN': 'SUV',
     'COUPE': 'Sport-car',
-    'HARDTOP': 'Compact',
+    'HARDTOP': 'Subcompact',
     'ROADSTER': 'Sport-car',
     'COOPER': 'Subcompact'
 },
@@ -762,7 +762,7 @@
     'MODEL S': 'Large',
     'MODEL X': 'SUV',
     'MODEL Y': 'SUV',
-    'MODEL 3': 'Compact',
+    'MODEL 3': 'Mid-size',
     'ROADSTER': 'Sport-car'
 },
 'toyota': {
@@ -775,7 +775,7 @@
     'CAMRY': 'Mid-size',
     'CELICA': 'Sport-car',
     'COROLLA': 'Compact',
-    'CROWN': 'Large',
+    'CROWN': 'Mid-size',
     'ECHO': 'Subcompact',
     'FJ': 'SUV',
     'GR86': 'Sport-car',
