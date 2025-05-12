@@ -1,4 +1,4 @@
-# 📊 Residual Value
+# 🚗 Residual Value
 
 This repository contains all the materials related to the Master's Thesis (TFM) entitled:  
 **"Considerations in the Calculation of Residual Value for Financed Vehicles, with a Focus on New Electric Vehicles."**
@@ -72,7 +72,7 @@ The main files are described below, organized by category:
 
 ### 👥 Authors and Contributions
 
-This project was developed in collaboration with a six-person team as part of the Master's Thesis: Lucía Bravo Dalmau, Carmen Fernández Casal, Paula Florián Júlvez, Lucía García de Santos, Juan Carlos Llamas Núñez, and Ana Villoria Jiménez. However, the implementation of the code, model design, and preparation of this repository were primarily carried out by **Juan Carlos Llamas Núñez**, with contributions from **Lucía García de Santos**. The rest of the team contributed to other areas of the project not directly related to coding and modeling.
+This project was developed in collaboration with a six-person team as part of the Master's Thesis: Lucía Bravo Dalmau, Carmen Fernández Casal, Paula Florián Júlvez, Lucía García de Santos, Juan Carlos Llamas Núñez, and Ana Villoria Jiménez. However, the implementation of the code, model design, and preparation of this repository were primarily carried out by Juan Carlos Llamas Núñez, with contributions from Lucía García de Santos. The rest of the team contributed to other areas of the project not directly related to coding and modeling.
 
 ---
 
