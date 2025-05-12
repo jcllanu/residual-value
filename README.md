@@ -1,4 +1,4 @@
-# 📊 Residual Value
+# 🚗 Residual Value
 
 Este repositorio recopila todo el material relacionado con el Trabajo de Fin de Máster (TFM) titulado:
 **"Consideraciones en el cálculo de valor residual de vehículos financiados, con foco en nuevos vehículos eléctricos"**.
