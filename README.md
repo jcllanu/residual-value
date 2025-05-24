@@ -70,6 +70,21 @@ The main files are described below, organized by category:
 
 ---
 
+## 📚 Dissertation and Supplementary Materials
+
+This section contains the formal documentation and supporting materials developed alongside the modeling and data work for the Master's Thesis.
+
+- **`Memoria TFM.pptx`**  
+  This is the full **dissertation** document, detailing the theoretical framework, methodology, data sources, model design, and results. It provides a comprehensive explanation of the **residual value estimation process**, with a particular focus on the unique challenges and considerations involved in valuing **new electric vehicles**. It also discusses regulatory, financial, and technological factors affecting depreciation.
+
+- **`Presentación ejecutiva.pptx`**  
+  An **executive summary presentation**, aimed at non-technical stakeholders. It includes key insights, findings, and strategic implications of the research in a visually engaging format.
+
+- **`Complementary Excels`**  
+ This directory contains **supporting Excel files** used during the analysis, including statistics from reputed sources and additional material such as an **installment calculator** for leasing and renting financial products that takes into account the **residual value estimation**.
+
+---
+
 ### 👥 Authors and Contributions
 
 This project was developed in collaboration with a six-person team as part of the Master's Thesis: Lucía Bravo Dalmau, Carmen Fernández Casal, Paula Florián Júlvez, Lucía García de Santos, Juan Carlos Llamas Núñez, and Ana Villoria Jiménez. However, the implementation of the code, model design, and preparation of this repository were primarily carried out by Juan Carlos Llamas Núñez, with contributions from Lucía García de Santos. The rest of the team contributed to other areas of the project not directly related to coding and modeling.
