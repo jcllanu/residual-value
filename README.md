@@ -1,79 +1,88 @@
 # 🚗 Residual Value
 
-Este repositorio recopila todo el material relacionado con el Trabajo de Fin de Máster (TFM) titulado:
-**"Consideraciones en el cálculo de valor residual de vehículos financiados, con foco en nuevos vehículos eléctricos"**.
+This repository contains all the materials related to the Master's Thesis (TFM) entitled:  
+**"Considerations in the Calculation of Residual Value for Financed Vehicles, with a Focus on New Electric Vehicles."**
 
-A continuación, se describen los archivos principales organizados por temática:
-
----
-
-## 📈 Modelización
-
-* **`residual_value_model.ipynb`**
-  Jupyter Notebook que contiene la implementación y documentación del **modelo de cálculo de valor residual** propuesto.
-
-* **`used_car_price_prediction_model.ipynb`**
-  Jupyter Notebook con la implementación y documentación del **modelo de predicción del precio de vehículos de segunda mano**, utilizado como componente del modelo de cálculo de valor residual.
-
-* **`xgboost_model.json`**
-  Archivo que exporta el modelo de predicción de precios seleccionado.
-
-* **`make_te_dictionary.xlsx`**, **`model_te_dictionary.xlsx`**, **`aux_model_te_dictionary.xlsx`**
-  Diccionarios que asocian a cada marca o modelo la codificación por objetivo aplicada sobre la muestra de entrenamiento.
+The main files are described below, organized by category:
 
 ---
 
-## 🌐 Extracción de Datos
+## 📈 Modeling
 
-* **`web_scraping.py`**
-  Script en Python para la extracción de datos desde la página web **cars.com** utilizando técnicas de *web scraping*.
+- **`residual_value_model.ipynb`**  
+  Jupyter Notebook containing the implementation and documentation of the proposed **residual value calculation model**.
 
-* **`create_directories.py`**
-  Script en Python para generar la estructura de directorios donde se almacenan los datos extraídos.
+- **`used_car_price_prediction_model.ipynb`**  
+  Jupyter Notebook with the implementation and documentation of the **used car price prediction model**, used as a component of the residual value model.
 
-* **`cars/`**
-  Directorio que contiene toda la información extraída de **cars.com** mediante el archivo `web_scraping.py`.
+- **`xgboost_model.json`**  
+  File exporting the selected price prediction model.
 
-* **`raw_data.xlsx`**
-  Archivo que unifica y consolida los datos almacenados en el directorio `cars/`.
-
-* **`price_scraping.py`**
-  Script en Python para la extracción de datos desde la página web **kbb.com** utilizando técnicas de *web scraping*.
-
-* **`data_treatment.py`**
-  Script en Python para el preprocesamiento de los datos extraídos de **kbb.com**.
-
-* **`raw_data_OV.xlsx`**
-  Versión modificada de `raw_data.xlsx` que incluye la variable *original value*.
+- **`make_te_dictionary.xlsx`**, **`model_te_dictionary.xlsx`**, **`aux_model_te_dictionary.xlsx`**  
+  Dictionaries mapping each brand or model to the target encoding applied to the training sample.
 
 ---
 
-## 🛠️ Procesamiento de Datos
+## 🌐 Data Extraction
 
-* **`car_classification_prompt.txt`**
-  Prompt utilizado en un modelo de lenguaje (LLM) para automatizar la clasificación de vehículos por tipo (SUV, compacto, deportivo, camioneta, etc.).
+- **`web_scraping.py`**  
+  Python script for extracting data from the **cars.com** website using web scraping techniques.
 
-* **`model_vehicle:type.txt`**
-  Diccionario que asocia cada modelo de coche con su correspondiente tipo de vehículo.
+- **`create_directories.py`**  
+  Python script for generating the directory structure to store the scraped data.
 
-* **`color_codification_prompt.txt`**
-  Prompt utilizado en una LLM para automatizar la codificación RGB de colores descritos en lenguaje natural.
+- **`cars/`**  
+  Directory containing all data extracted from **cars.com** using the `web_scraping.py` script.
 
-* **`colors/`**
-  Directorio que contiene diccionarios de colores convertidos de lenguaje natural a codificación RGB, generados mediante LLM y validados manualmente.
+- **`raw_data.xlsx`**  
+  Consolidated file combining all the data stored in the `cars/` directory.
 
-* **`excel_color_macro.txt`**
-  Macro de Excel para verificar que la codificación automática de colores ha sido correcta.
+- **`price_scraping.py`**  
+  Python script for extracting data from the **kbb.com** website using web scraping.
 
-* **`preprocessed_dataset.xlsx`**
-  Archivo resultante del preprocesamiento de `raw_data_OV.xlsx`, utilizando el código de `used_car_price_prediction_model.ipynb`.
+- **`data_treatment.py`**  
+  Python script for preprocessing data extracted from **kbb.com**.
 
----
-
-### 👥 Autores y contribuciones
-
-Este proyecto ha sido desarrollado en colaboración con un equipo de seis personas en el marco del Trabajo de Fin de Máster, veánse Lucía Bravo Dalmau, Carmen Fernández Casal, Paula Florián Júlvez, Lucía García de Santos, Juan Carlos Llamas Núñez y Ana Villoria Jiménez. No obstante, la implementación del código, el diseño de los modelos y la preparación del repositorio han sido realizados principalmente por Juan Carlos Llamas Núñez, contando con contribuciones de Lucía García de Santos. El resto del equipo ha contribuido en otras áreas del proyecto no relacionadas con la codificación y la modelización.
+- **`raw_data_OV.xlsx`**  
+  Modified version of `raw_data.xlsx` that includes the *original value* variable.
 
 ---
 
-📌 **Nota:** Todos los archivos y scripts han sido desarrollados como parte del análisis y modelización para el TFM anteriormente mencionado. Su uso y distribución están sujetos a las condiciones del autor.
+## 🛠️ Data Processing
+
+- **`car_classification_prompt.txt`**  
+  Prompt used with a large language model (LLM) to automate vehicle type classification (SUV, compact, sports, pickup, etc.).
+
+- **`model_vehicle:type.txt`**  
+  Dictionary mapping each car model to its corresponding vehicle type.
+
+- **`color_codification_prompt.txt`**  
+  Prompt used with an LLM to automate the RGB encoding of colors described in natural language.
+
+- **`colors/`**  
+  Directory containing dictionaries that convert natural language color descriptions into RGB codes, generated by an LLM and manually validated.
+
+- **`excel_color_macro.txt`**  
+  Excel macro used to verify the correctness of the automatic color encoding.
+
+- **`preprocessed_dataset.xlsx`**  
+  File resulting from preprocessing `raw_data_OV.xlsx` using the code from `used_car_price_prediction_model.ipynb`.
+
+---
+
+### 👥 Authors and Contributions
+
+This project was developed in collaboration with a six-person team as part of the Master's Thesis: Lucía Bravo Dalmau, Carmen Fernández Casal, Paula Florián Júlvez, Lucía García de Santos, Juan Carlos Llamas Núñez, and Ana Villoria Jiménez. However, the implementation of the code, model design, and preparation of this repository were primarily carried out by Juan Carlos Llamas Núñez, with contributions from Lucía García de Santos. The rest of the team contributed to other areas of the project not directly related to coding and modeling.
+
+---
+
+📌 **Note:** All files and scripts were developed as part of the analysis and modeling carried out for the aforementioned Master's Thesis. Their use and distribution are subject to the author's conditions.
+
+
+
+
+
+
+
+
+
