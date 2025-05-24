@@ -67,7 +67,21 @@ A continuación, se describen los archivos principales organizados por temática
 
 * **`preprocessed_dataset.xlsx`**
   Archivo resultante del preprocesamiento de `raw_data_OV.xlsx`, utilizando el código de `used_car_price_prediction_model.ipynb`.
+---
 
+## 📚 Memoria y Materiales Complementarios
+
+Esta sección contiene la documentación formal y los materiales de apoyo desarrollados junto con el trabajo de modelado y análisis de datos para el Trabajo Fin de Máster (TFM).
+
+- **`Memoria TFM.pptx`**  
+  Documento completo de la **memoria del TFM**, donde se detallan el marco teórico, la metodología, las fuentes de datos, el diseño del modelo y los resultados obtenidos. Proporciona una explicación exhaustiva del proceso de **estimación del valor residual**, con un enfoque particular en los desafíos y consideraciones específicas relacionados con los **nuevos vehículos eléctricos**. También se analizan factores regulatorios, financieros y tecnológicos que influyen en la depreciación.
+
+- **`Presentación ejecutiva.pptx`**  
+  Una **presentación ejecutiva**, dirigida a perfiles no técnicos. Resume los principales hallazgos, conclusiones e implicaciones estratégicas del estudio en un formato visualmente atractivo.
+
+- **`Materiales Complementarios`**  
+  Este directorio contiene archivos **Excel de apoyo** utilizados durante el análisis, incluyendo estadísticas provenientes de fuentes reconocidas y material adicional como una **calculadora de cuotas** para productos financieros de leasing y renting, que tiene en cuenta la **estimación del valor residual**.
+  
 ---
 
 ### 👥 Autores y contribuciones
